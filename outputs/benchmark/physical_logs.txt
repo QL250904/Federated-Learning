@@ -1,0 +1,97 @@
+============================================================
+ BẮT ĐẦU CHẠY RANDOM FOREST TRONG MÔI TRƯỜNG MẠNG THỰC 
+============================================================
+==================================================
+ MÁY CHỦ TRUNG TÂM (TRUYỀN THỐNG TRONG MACHINE LEARNING)
+ Cơ chế: Bắt buộc thu gom file gốc của Mọi Client về học
+==================================================
+[Server] Đang đợi dữ liệu nhạy cảm thô từ 2 máy Clients (Port 6000)...
+[Server] Đã kết nối với Client 1 tại ('127.0.0.1', 55515)
+ -> Đã Copy 30000 hình ảnh GỐC từ Client 1
+[Server] Đã kết nối với Client 2 tại ('127.0.0.1', 55516)
+ -> Đã Copy 30000 hình ảnh GỐC từ Client 2
+
+[Server] Tổng hình ảnh đã gom trên Server: 60000
+[Server] Đang huấn luyện Random Forest...
+[Server] ✅ Hoàn tất! (Múi giờ: 34.93s)
+
+============================================================
+ BẮT ĐẦU CHẠY FL DECENTRALIZED TRONG MÔI TRƯỜNG MẠNG THỰC 
+============================================================
+==================================================
+ MÁY TRẠM ĐỘC LẬP NODE 1 (DECENTRALIZED - RING)
+ Cơ chế: Không cần Server, giao tiếp với hàng xóm (Node 2)
+==================================================
+[Node 1] Đang chờ Node 2 kết nối trên Port 7001...
+[Node 1] Đã mở khoá kết nối liên lưới với: ('127.0.0.1', 49675)
+
+[Vòng 1] Đang train (Dataset cục bộ, cấm Share)...
+[Vòng 1] Gửi Tham số Trí tuệ (KHÔNG GỬI DATA GỐC) -> Node 2
+[Vòng 1] Đợi tổng hợp từ Node 2 trả về...
+[Vòng 1] Gộp kinh nghiệm thành công!
+
+[Vòng 2] Đang train (Dataset cục bộ, cấm Share)...
+[Vòng 2] Gửi Tham số Trí tuệ (KHÔNG GỬI DATA GỐC) -> Node 2
+[Vòng 2] Đợi tổng hợp từ Node 2 trả về...
+[Vòng 2] Gộp kinh nghiệm thành công!
+
+[Vòng 3] Đang train (Dataset cục bộ, cấm Share)...
+[Vòng 3] Gửi Tham số Trí tuệ (KHÔNG GỬI DATA GỐC) -> Node 2
+[Vòng 3] Đợi tổng hợp từ Node 2 trả về...
+[Vòng 3] Gộp kinh nghiệm thành công!
+
+[Vòng 4] Đang train (Dataset cục bộ, cấm Share)...
+[Vòng 4] Gửi Tham số Trí tuệ (KHÔNG GỬI DATA GỐC) -> Node 2
+[Vòng 4] Đợi tổng hợp từ Node 2 trả về...
+[Vòng 4] Gộp kinh nghiệm thành công!
+
+[Vòng 5] Đang train (Dataset cục bộ, cấm Share)...
+[Vòng 5] Gửi Tham số Trí tuệ (KHÔNG GỬI DATA GỐC) -> Node 2
+[Vòng 5] Đợi tổng hợp từ Node 2 trả về...
+[Vòng 5] Gộp kinh nghiệm thành công!
+
+[Node 1] ✅ Máy trạm đã hội tụ học xong, tốn 78.29s!
+
+============================================================
+ BẮT ĐẦU CHẠY FL CENTRALIZED (MẠNG HOA) TRONG MÔI TRƯỜNG THỰC 
+============================================================
+[93mWARNING [0m:   DEPRECATED FEATURE: flwr.server.start_server() is deprecated.
+	Instead, use the `flower-superlink` CLI command to start a SuperLink as shown below:
+
+		$ flower-superlink --insecure
+
+	To view usage and all available options, run:
+
+		$ flower-superlink --help
+
+	Using `start_server()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[92mINFO [0m:      Starting Flower server, config: num_rounds=8, no round_timeout
+[92mINFO [0m:      Flower ECE: gRPC server running (8 rounds), SSL is disabled
+[92mINFO [0m:      [INIT]
+[92mINFO [0m:      Requesting initial parameters from one random client
+[92mINFO [0m:      Received initial parameters from one random client
+[92mINFO [0m:      Starting evaluation of initial global parameters
+[92mINFO [0m:      initial parameters (loss, other metrics): 361.79192900657654, {'accuracy': 0.1213}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1]
+[92mINFO [0m:      configure_fit: strategy sampled 2 clients (out of 2)
+[92mINFO [0m:      aggregate_fit: received 2 results and 0 failures
+[93mWARNING [0m:   No fit_metrics_aggregation_fn provided
+[92mINFO [0m:      fit progress: (1, 428.2217843532562, {'accuracy': 0.1135}, 18.93774000002304)
+[92mINFO [0m:      configure_evaluate: strategy sampled 2 clients (out of 2)
+[92mINFO [0m:      aggregate_evaluate: received 2 results and 0 failures
+[93mWARNING [0m:   No evaluate_metrics_aggregation_fn provided
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2]
+[92mINFO [0m:      configure_fit: strategy sampled 2 clients (out of 2)
+[92mINFO [0m:      aggregate_fit: received 2 results and 0 failures
+[92mINFO [0m:      fit progress: (2, 363.07263588905334, {'accuracy': 0.1028}, 40.174029399990104)
+[92mINFO [0m:      configure_evaluate: strategy sampled 2 clients (out of 2)
+[92mINFO [0m:      aggregate_evaluate: received 2 results and 0 failures
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3]
+[92mINFO [0m:      configure_fit: strategy sampled 2 clients (out of 2)

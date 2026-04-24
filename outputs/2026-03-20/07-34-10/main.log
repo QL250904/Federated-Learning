@@ -1,0 +1,109 @@
+[2026-03-20 07:34:11,039][flwr][WARNING] - 
+Setting `min_available_clients` lower than `min_fit_clients` or
+`min_evaluate_clients` can cause the server to fail when there are too few clients
+connected to the server. `min_available_clients` must be set to a value larger
+than or equal to the values of `min_fit_clients` and `min_evaluate_clients`.
+
+[2026-03-20 07:34:11,335][flwr][WARNING] - DEPRECATED FEATURE: flwr.simulation.start_simulation() is deprecated.
+	Instead, use the `flwr run` CLI command to start a local simulation in your Flower app, as shown for example below:
+
+		$ flwr new  # Create a new Flower app from a template
+
+		$ flwr run  # Run the Flower app in Simulation Mode
+
+	Using `start_simulation()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-03-20 07:34:11,336][flwr][INFO] - Starting Flower simulation, config: num_rounds=8, no round_timeout
+[2026-03-20 07:34:15,278][flwr][INFO] - Flower VCE: Ray initialized with resources: {'CPU': 8.0, 'memory': 911543092.0, 'node:127.0.0.1': 1.0, 'node:__internal_head__': 1.0, 'object_store_memory': 390661324.0}
+[2026-03-20 07:34:15,278][flwr][INFO] - Optimize your simulation with Flower VCE: https://flower.ai/docs/framework/how-to-run-simulations.html
+[2026-03-20 07:34:15,278][flwr][INFO] - No `client_resources` specified. Using minimal resources for clients.
+[2026-03-20 07:34:15,279][flwr][INFO] - Flower VCE: Resources for each Virtual Client: {'num_cpus': 1, 'num_gpus': 0.0}
+[2026-03-20 07:34:15,313][flwr][INFO] - Flower VCE: Creating VirtualClientEngineActorPool with 8 actors
+[2026-03-20 07:34:15,314][flwr][INFO] - [INIT]
+[2026-03-20 07:34:15,314][flwr][INFO] - Requesting initial parameters from one random client
+[2026-03-20 07:34:21,446][flwr][INFO] - Received initial parameters from one random client
+[2026-03-20 07:34:21,446][flwr][INFO] - Starting evaluation of initial global parameters
+[2026-03-20 07:34:23,925][flwr][INFO] - initial parameters (loss, other metrics): 361.89235377311707, {'accuracy': 0.0985}
+[2026-03-20 07:34:23,926][flwr][INFO] - 
+[2026-03-20 07:34:23,926][flwr][INFO] - [ROUND 1]
+[2026-03-20 07:34:23,928][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (3).
+[2026-03-20 07:34:23,928][flwr][INFO] - configure_fit: no clients selected, cancel
+[2026-03-20 07:34:26,739][flwr][INFO] - fit progress: (1, 361.89235377311707, {'accuracy': 0.0985}, 2.8118388000002597)
+[2026-03-20 07:34:26,739][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (4).
+[2026-03-20 07:34:26,739][flwr][INFO] - configure_evaluate: no clients selected, skipping evaluation
+[2026-03-20 07:34:26,739][flwr][INFO] - 
+[2026-03-20 07:34:26,739][flwr][INFO] - [ROUND 2]
+[2026-03-20 07:34:26,740][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (3).
+[2026-03-20 07:34:26,740][flwr][INFO] - configure_fit: no clients selected, cancel
+[2026-03-20 07:34:28,841][flwr][INFO] - fit progress: (2, 361.89235377311707, {'accuracy': 0.0985}, 4.915019599997322)
+[2026-03-20 07:34:28,842][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (4).
+[2026-03-20 07:34:28,842][flwr][INFO] - configure_evaluate: no clients selected, skipping evaluation
+[2026-03-20 07:34:28,842][flwr][INFO] - 
+[2026-03-20 07:34:28,844][flwr][INFO] - [ROUND 3]
+[2026-03-20 07:34:28,844][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (3).
+[2026-03-20 07:34:28,844][flwr][INFO] - configure_fit: no clients selected, cancel
+[2026-03-20 07:34:31,247][flwr][INFO] - fit progress: (3, 361.89235377311707, {'accuracy': 0.0985}, 7.32125169999199)
+[2026-03-20 07:34:31,248][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (4).
+[2026-03-20 07:34:31,248][flwr][INFO] - configure_evaluate: no clients selected, skipping evaluation
+[2026-03-20 07:34:31,248][flwr][INFO] - 
+[2026-03-20 07:34:31,249][flwr][INFO] - [ROUND 4]
+[2026-03-20 07:34:31,249][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (3).
+[2026-03-20 07:34:31,250][flwr][INFO] - configure_fit: no clients selected, cancel
+[2026-03-20 07:34:33,944][flwr][INFO] - fit progress: (4, 361.89235377311707, {'accuracy': 0.0985}, 10.018279800002347)
+[2026-03-20 07:34:33,946][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (4).
+[2026-03-20 07:34:33,946][flwr][INFO] - configure_evaluate: no clients selected, skipping evaluation
+[2026-03-20 07:34:33,947][flwr][INFO] - 
+[2026-03-20 07:34:33,947][flwr][INFO] - [ROUND 5]
+[2026-03-20 07:34:33,947][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (3).
+[2026-03-20 07:34:33,948][flwr][INFO] - configure_fit: no clients selected, cancel
+[2026-03-20 07:34:36,644][flwr][INFO] - fit progress: (5, 361.89235377311707, {'accuracy': 0.0985}, 12.718007799994666)
+[2026-03-20 07:34:36,648][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (4).
+[2026-03-20 07:34:36,649][flwr][INFO] - configure_evaluate: no clients selected, skipping evaluation
+[2026-03-20 07:34:36,650][flwr][INFO] - 
+[2026-03-20 07:34:36,650][flwr][INFO] - [ROUND 6]
+[2026-03-20 07:34:36,650][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (3).
+[2026-03-20 07:34:36,651][flwr][INFO] - configure_fit: no clients selected, cancel
+[2026-03-20 07:34:39,314][flwr][INFO] - fit progress: (6, 361.89235377311707, {'accuracy': 0.0985}, 15.387958899998921)
+[2026-03-20 07:34:39,316][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (4).
+[2026-03-20 07:34:39,316][flwr][INFO] - configure_evaluate: no clients selected, skipping evaluation
+[2026-03-20 07:34:39,317][flwr][INFO] - 
+[2026-03-20 07:34:39,317][flwr][INFO] - [ROUND 7]
+[2026-03-20 07:34:39,318][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (3).
+[2026-03-20 07:34:39,318][flwr][INFO] - configure_fit: no clients selected, cancel
+[2026-03-20 07:34:46,192][flwr][INFO] - fit progress: (7, 361.89235377311707, {'accuracy': 0.0985}, 22.26519499999995)
+[2026-03-20 07:34:46,195][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (4).
+[2026-03-20 07:34:46,195][flwr][INFO] - configure_evaluate: no clients selected, skipping evaluation
+[2026-03-20 07:34:46,196][flwr][INFO] - 
+[2026-03-20 07:34:46,197][flwr][INFO] - [ROUND 8]
+[2026-03-20 07:34:46,198][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (3).
+[2026-03-20 07:34:46,200][flwr][INFO] - configure_fit: no clients selected, cancel
+[2026-03-20 07:34:52,489][flwr][INFO] - fit progress: (8, 361.89235377311707, {'accuracy': 0.0985}, 28.56311600000481)
+[2026-03-20 07:34:52,491][flwr][INFO] - Sampling failed: number of available clients (2) is less than number of requested clients (4).
+[2026-03-20 07:34:52,491][flwr][INFO] - configure_evaluate: no clients selected, skipping evaluation
+[2026-03-20 07:34:52,498][flwr][INFO] - 
+[2026-03-20 07:34:52,532][flwr][INFO] - [SUMMARY]
+[2026-03-20 07:34:52,535][flwr][INFO] - Run finished 8 round(s) in 28.57s
+[2026-03-20 07:34:52,536][flwr][INFO] - 	History (loss, centralized):
+[2026-03-20 07:34:52,537][flwr][INFO] - 		round 0: 361.89235377311707
+[2026-03-20 07:34:52,538][flwr][INFO] - 		round 1: 361.89235377311707
+[2026-03-20 07:34:52,539][flwr][INFO] - 		round 2: 361.89235377311707
+[2026-03-20 07:34:52,539][flwr][INFO] - 		round 3: 361.89235377311707
+[2026-03-20 07:34:52,540][flwr][INFO] - 		round 4: 361.89235377311707
+[2026-03-20 07:34:52,540][flwr][INFO] - 		round 5: 361.89235377311707
+[2026-03-20 07:34:52,541][flwr][INFO] - 		round 6: 361.89235377311707
+[2026-03-20 07:34:52,547][flwr][INFO] - 		round 7: 361.89235377311707
+[2026-03-20 07:34:52,548][flwr][INFO] - 		round 8: 361.89235377311707
+[2026-03-20 07:34:52,548][flwr][INFO] - 	History (metrics, centralized):
+[2026-03-20 07:34:52,551][flwr][INFO] - 	{'accuracy': [(0, 0.0985),
+[2026-03-20 07:34:52,553][flwr][INFO] - 	              (1, 0.0985),
+[2026-03-20 07:34:52,554][flwr][INFO] - 	              (2, 0.0985),
+[2026-03-20 07:34:52,555][flwr][INFO] - 	              (3, 0.0985),
+[2026-03-20 07:34:52,560][flwr][INFO] - 	              (4, 0.0985),
+[2026-03-20 07:34:52,583][flwr][INFO] - 	              (5, 0.0985),
+[2026-03-20 07:34:52,586][flwr][INFO] - 	              (6, 0.0985),
+[2026-03-20 07:34:52,593][flwr][INFO] - 	              (7, 0.0985),
+[2026-03-20 07:34:52,600][flwr][INFO] - 	              (8, 0.0985)]}
+[2026-03-20 07:34:52,606][flwr][INFO] - 
