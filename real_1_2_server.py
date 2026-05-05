@@ -45,6 +45,7 @@ def main():
 
     print(f"=== SERVER TẬP TRUNG ({args.mode.upper()}) ===")
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server.bind(('0.0.0.0', args.port))
     server.listen(args.num_clients)
 
