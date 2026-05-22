@@ -1,0 +1,31 @@
+{
+  "method": "Fully Centralized (Real Network)",
+  "mode": "real",
+  "num_clients": 2,
+  "epochs": 2,
+  "final_accuracy": 0.9822,
+  "final_loss": 16.12277234884447,
+  "total_time": 19.498460054397583,
+  "comm_time": 1.2120475769042969,
+  "train_time": 18.286412477493286,
+  "total_comm_bytes": 188640000,
+  "total_comm_mb": 179.901123046875,
+  "peak_memory_mb": 0.2503547668457031,
+  "cpu_percent": 57.5,
+  "epoch_metrics": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5919945848587431,
+      "test_loss": 34.33471198442666,
+      "accuracy": 0.9616,
+      "epoch_time": 8.968457221984863
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.08501622528542699,
+      "test_loss": 16.12277234884447,
+      "accuracy": 0.9822,
+      "epoch_time": 9.281974077224731
+    }
+  ]
+}

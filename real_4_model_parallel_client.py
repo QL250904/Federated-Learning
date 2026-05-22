@@ -62,14 +62,17 @@ def main():
         model.train()
         epoch_start = time.time()
         batch_losses = []
+        part1_time = 0.0
 
         for batch_idx, (X, y) in enumerate(loader):
+            t_p1_start = time.time()
             optimizer.zero_grad()
             activations = model(X)
-
-            # Gửi activations + labels đến Server (Part 2)
             act_np = activations.detach().numpy()
             y_np = y.numpy()
+            part1_time += time.time() - t_p1_start
+
+            # Gửi activations + labels đến Server (Part 2)
             send_msg(sock, {
                 'action': 'forward',
                 'activations': act_np,
@@ -82,16 +85,18 @@ def main():
             batch_losses.append(response['loss'])
 
             # Backward Part 1
+            t_p1_back_start = time.time()
             grad_tensor = torch.tensor(grad_np, dtype=torch.float32)
             activations.backward(grad_tensor)
             optimizer.step()
+            part1_time += time.time() - t_p1_back_start
 
         # Báo hết epoch
         send_msg(sock, {'action': 'epoch_done'})
         
         # Gửi Part1 weights để server evaluate
         part1_weights = [p.data.cpu().numpy() for p in model.parameters()]
-        send_msg(sock, {'action': 'eval', 'part1_weights': part1_weights})
+        send_msg(sock, {'action': 'eval', 'part1_weights': part1_weights, 'part1_time': part1_time})
         
         # Nhận kết quả eval
         eval_result = recv_msg(sock)

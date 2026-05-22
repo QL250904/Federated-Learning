@@ -63,11 +63,13 @@ def main():
     all_X, all_y = [], []
 
     t_comm_start = time.time()
+    preprocess_times = []
     for i, conn in enumerate(clients):
         print(f"\n[SERVER] Đang nhận data từ Client {i}...")
         data = recv_msg(conn)
         X_client = data['X']
         y_client = data['y']
+        preprocess_times.append(data.get('preprocess_time', 0.0))
         data_size = X_client.nbytes + y_client.nbytes
         total_comm_bytes += data_size
         all_X.append(X_client)
@@ -166,9 +168,11 @@ def main():
         'pca_components': args.pca_components,
         'final_accuracy': epoch_metrics[-1]['accuracy'],
         'final_loss': epoch_metrics[-1]['test_loss'],
-        'total_time': comm_time + train_time,
+        'total_time': comm_time + train_time + sum(preprocess_times),
         'comm_time': comm_time,
         'train_time': train_time,
+        'train_time_only': train_time,
+        'preprocess_time': sum(preprocess_times),
         'total_comm_bytes': total_comm_bytes,
         'total_comm_mb': total_comm_bytes / (1024*1024),
         'raw_comm_mb': total_raw_bytes / (1024*1024),

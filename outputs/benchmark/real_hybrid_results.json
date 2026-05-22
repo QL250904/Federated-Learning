@@ -1,0 +1,34 @@
+{
+  "method": "Hybrid Parallelism (Real Network)",
+  "mode": "real",
+  "num_data_groups": 2,
+  "num_workers": 4,
+  "epochs": 2,
+  "final_accuracy": 0.9799,
+  "final_loss": 9.993712312192656,
+  "total_time": 60.06753873825073,
+  "total_comm_bytes": 247471968,
+  "total_comm_mb": 236.00765991210938,
+  "peak_memory_mb": 0.43433380126953125,
+  "cpu_percent": 19.9,
+  "epoch_metrics": [
+    {
+      "epoch": 1,
+      "train_loss": 0.523590091141318,
+      "test_loss": 141.64691495895386,
+      "accuracy": 0.8341,
+      "epoch_time": 30.992537260055542,
+      "sync_time": 0.002996206283569336,
+      "comm_bytes": 123735984
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.14407541034772975,
+      "test_loss": 9.993712312192656,
+      "accuracy": 0.9799,
+      "epoch_time": 29.07402014732361,
+      "sync_time": 0.0033202171325683594,
+      "comm_bytes": 123735984
+    }
+  ]
+}

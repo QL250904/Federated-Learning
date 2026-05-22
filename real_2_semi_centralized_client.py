@@ -68,7 +68,11 @@ def main():
     sock = connect_to_server(args.server_ip, args.port)
 
     t_start = time.time()
-    send_msg(sock, {'X': X_pca, 'y': y_client})
+    send_msg(sock, {
+        'X': X_pca,
+        'y': y_client,
+        'preprocess_time': preprocess_time
+    })
     t_send = time.time() - t_start
 
     print(f"  ✓ Gửi thành công! Thời gian: {t_send:.2f}s")

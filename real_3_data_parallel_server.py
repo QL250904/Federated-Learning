@@ -97,9 +97,11 @@ def main():
 
         # Nhận local weights từ clients
         local_weights_list = []
+        worker_train_times = []
         for i, conn in enumerate(clients):
             data = recv_msg(conn)
             local_weights_list.append(data['weights'])
+            worker_train_times.append(data.get('train_time', 0.0))
             print(f"  ✓ Nhận weights từ Client {i}")
         
         receive_comm = param_size * args.num_clients
@@ -134,7 +136,8 @@ def main():
             'test_loss': test_loss,
             'accuracy': accuracy,
             'epoch_time': epoch_time,
-            'comm_time': comm_time,
+            'sync_time': comm_time,
+            'avg_worker_time': np.mean(worker_train_times),
             'comm_bytes': epoch_comm,
         })
         print(f"  Epoch {epoch}: Acc={accuracy*100:.2f}%, "
@@ -155,6 +158,7 @@ def main():
         'method': 'Data Parallelism (Real Network)',
         'mode': 'real',
         'num_clients': args.num_clients,
+        'num_workers': args.num_clients,
         'epochs': args.epochs,
         'final_accuracy': epoch_metrics[-1]['accuracy'],
         'final_loss': epoch_metrics[-1]['test_loss'],

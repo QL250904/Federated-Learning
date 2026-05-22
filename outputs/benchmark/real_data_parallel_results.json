@@ -1,0 +1,34 @@
+{
+  "method": "Data Parallelism (Real Network)",
+  "mode": "real",
+  "num_clients": 2,
+  "num_workers": 2,
+  "epochs": 2,
+  "final_accuracy": 0.985,
+  "final_loss": 7.4975115568886395,
+  "total_time": 31.745270490646362,
+  "total_comm_bytes": 1421632,
+  "total_comm_mb": 1.35577392578125,
+  "peak_memory_mb": 0.8948602676391602,
+  "cpu_percent": 57.6,
+  "epoch_metrics": [
+    {
+      "epoch": 1,
+      "test_loss": 11.458024778054096,
+      "accuracy": 0.977,
+      "epoch_time": 15.406539916992188,
+      "sync_time": 12.106754779815674,
+      "avg_worker_time": 12.078336834907532,
+      "comm_bytes": 710816
+    },
+    {
+      "epoch": 2,
+      "test_loss": 7.4975115568886395,
+      "accuracy": 0.985,
+      "epoch_time": 16.338730573654175,
+      "sync_time": 13.13988447189331,
+      "avg_worker_time": 13.109079122543335,
+      "comm_bytes": 710816
+    }
+  ]
+}

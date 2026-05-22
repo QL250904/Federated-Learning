@@ -105,7 +105,7 @@ def main():
         print(f"  Train: Loss={avg_loss:.4f}, Time={train_time:.2f}s")
 
         # Gửi local weights
-        send_msg(sock, {'weights': get_params(model)})
+        send_msg(sock, {'weights': get_params(model), 'train_time': train_time})
         print(f"  ✓ Đã gửi local weights về Server")
 
     sock.close()

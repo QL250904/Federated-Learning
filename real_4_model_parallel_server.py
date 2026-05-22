@@ -95,6 +95,7 @@ def main():
         epoch_loss = 0.0
         epoch_comm = 0
         epoch_batches = 0
+        part2_time = 0.0
         model.train()
 
         while True:
@@ -114,6 +115,7 @@ def main():
             act_np = data['activations']
             y_np = data['labels']
             
+            t_p2_start = time.time()
             activations = torch.tensor(act_np, dtype=torch.float32, requires_grad=True)
             labels = torch.tensor(y_np, dtype=torch.long)
 
@@ -125,6 +127,8 @@ def main():
 
             # Gửi gradient ngược về client
             grad_np = activations.grad.numpy()
+            part2_time += time.time() - t_p2_start
+
             send_msg(conn, {'gradients': grad_np, 'loss': loss.item()})
 
             # Tính communication
@@ -139,11 +143,13 @@ def main():
         epoch_time = time.time() - epoch_start
 
         # Evaluate - nhận Part1 weights từ client để tạo full model
+        part1_time = 0.0
         if data and data.get('action') == 'epoch_done':
             # Nhận evaluation request
             eval_data = recv_msg(conn)
             if eval_data and eval_data.get('action') == 'eval':
                 part1_weights = eval_data['part1_weights']
+                part1_time = eval_data.get('part1_time', 0.0)
                 
                 # Tạo full model để evaluate
                 full_model = FullNet()
@@ -189,6 +195,8 @@ def main():
             'test_loss': test_loss,
             'accuracy': accuracy,
             'epoch_time': epoch_time,
+            'part1_time': part1_time,
+            'part2_time': part2_time,
             'comm_bytes': epoch_comm,
         })
         print(f"  Epoch {epoch}/{args.epochs}: Acc={accuracy*100:.2f}%, "
@@ -207,6 +215,8 @@ def main():
         'method': 'Model Parallelism (Real Network)',
         'mode': 'real',
         'num_workers': 2,
+        'part1_params': 2572,
+        'part2_params': 41854,
         'epochs': args.epochs,
         'final_accuracy': epoch_metrics[-1]['accuracy'],
         'final_loss': epoch_metrics[-1]['test_loss'],

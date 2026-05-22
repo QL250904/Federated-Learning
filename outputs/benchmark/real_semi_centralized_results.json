@@ -1,0 +1,36 @@
+{
+  "method": "Semi-Centralized (Real Network)",
+  "mode": "real",
+  "num_clients": 2,
+  "epochs": 2,
+  "pca_components": 100,
+  "final_accuracy": 0.8961,
+  "final_loss": 49.77808590978384,
+  "total_time": 7.945332765579224,
+  "comm_time": 0.15101838111877441,
+  "train_time": 6.621637344360352,
+  "train_time_only": 6.621637344360352,
+  "preprocess_time": 1.1726770401000977,
+  "total_comm_bytes": 24480000,
+  "total_comm_mb": 23.345947265625,
+  "raw_comm_mb": 179.443359375,
+  "bandwidth_reduction": 86.98979591836735,
+  "peak_memory_mb": 0.11599254608154297,
+  "cpu_percent": 36.4,
+  "epoch_metrics": [
+    {
+      "epoch": 1,
+      "train_loss": 0.47647647768545,
+      "test_loss": 52.722574681043625,
+      "accuracy": 0.8888,
+      "epoch_time": 3.391343355178833
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2352839550976433,
+      "test_loss": 49.77808590978384,
+      "accuracy": 0.8961,
+      "epoch_time": 3.2282886505126953
+    }
+  ]
+}

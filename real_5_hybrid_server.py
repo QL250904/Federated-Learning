@@ -138,6 +138,7 @@ def main():
                 epoch_batch_count += 1
 
         # === Phase 2: AllReduce Part2 weights giữa các groups ===
+        t_sync_start = time.time()
         all_part2_params = []
         for p2 in parts2:
             params = [p.data.clone() for p in p2.parameters()]
@@ -182,6 +183,7 @@ def main():
             p1_size = sum(w.nbytes for w in all_part1_weights[0])
             epoch_comm += p1_size * 2 * args.num_clients
 
+        sync_time = time.time() - t_sync_start
         total_comm_bytes += epoch_comm
 
         # === Evaluate ===
@@ -217,6 +219,7 @@ def main():
             'test_loss': test_loss,
             'accuracy': accuracy,
             'epoch_time': epoch_time,
+            'sync_time': sync_time,
             'comm_bytes': epoch_comm,
         })
         print(f"  Epoch {epoch}/{args.epochs}: Acc={accuracy*100:.2f}%, "
@@ -225,8 +228,14 @@ def main():
 
     # Done
     for conn in clients:
-        send_msg(conn, {'action': 'done'})  # Báo clients kết thúc (cho epoch_done check)
-        conn.close()
+        try:
+            send_msg(conn, {'action': 'done'})  # Báo clients kết thúc (cho epoch_done check)
+        except Exception:
+            pass
+        try:
+            conn.close()
+        except Exception:
+            pass
 
     total_time = time.time() - t_start
     _, final_peak = tracemalloc.get_traced_memory()
